@@ -640,7 +640,7 @@ p {
   font-weight: 700;
 }
 
-.hero-facts {
+.candidate-overview {
   display: grid;
   margin: 0;
   padding: 0;
@@ -649,27 +649,56 @@ p {
   border-radius: var(--radius-md);
   background: var(--surface);
   box-shadow: var(--shadow-sm);
-  list-style: none;
 }
 
-.hero-facts li {
+.candidate-overview > div {
   display: grid;
   min-width: 0;
-  padding: 19px 21px;
-  gap: 2px;
+  padding: 22px 24px;
+  align-content: start;
+  gap: 9px;
 }
 
-.hero-facts li + li {
+.candidate-overview > div + div {
   border-top: 1px solid var(--line);
 }
 
-.hero-facts strong {
-  font-size: 0.9rem;
+.candidate-overview dt {
+  color: var(--blue);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
-.hero-facts span {
+.candidate-overview dd {
+  margin: 0;
+}
+
+.candidate-overview strong {
+  display: block;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.candidate-overview dd > span {
+  display: block;
+  margin-top: 4px;
   color: var(--muted);
   font-size: 0.72rem;
+}
+
+.candidate-overview a {
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 4px;
+  transition: color 160ms ease, text-decoration-color 160ms ease;
+}
+
+.candidate-overview a:hover {
+  color: var(--blue);
+  text-decoration-color: currentColor;
 }
 
 .section {
@@ -1322,15 +1351,6 @@ p {
     --container: min(1160px, calc(100% - 64px));
   }
 
-  .hero-facts {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .hero-facts li + li {
-    border-top: 0;
-    border-left: 1px solid var(--line);
-  }
-
   .projects-grid,
   .activities-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1424,9 +1444,15 @@ p {
     column-gap: clamp(50px, 7vw, 88px);
   }
 
-  .hero-facts {
+  .candidate-overview {
     grid-column: 1 / -1;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     margin-top: 22px;
+  }
+
+  .candidate-overview > div + div {
+    border-top: 0;
+    border-left: 1px solid var(--line);
   }
 
   .section-header {
