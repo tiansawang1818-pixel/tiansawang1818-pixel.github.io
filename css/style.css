@@ -640,65 +640,75 @@ p {
   font-weight: 700;
 }
 
-.candidate-overview {
-  display: grid;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-  background: var(--surface);
-  box-shadow: var(--shadow-sm);
-}
-
-.candidate-overview > div {
-  display: grid;
-  min-width: 0;
-  padding: 22px 24px;
-  align-content: start;
-  gap: 9px;
-}
-
-.candidate-overview > div + div {
+.internship-note {
+  display: flex;
+  padding-block: 30px;
+  flex-direction: column;
+  gap: 24px;
   border-top: 1px solid var(--line);
 }
 
-.candidate-overview dt {
-  color: var(--blue);
-  font-size: 0.6rem;
+.internship-note-copy {
+  max-width: 630px;
+}
+
+.internship-note-title {
+  margin-bottom: 7px;
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  font-weight: 650;
+  letter-spacing: -0.035em;
+  line-height: 1.25;
+}
+
+.internship-note-description {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.internship-note-link {
+  display: grid;
+  width: fit-content;
+  min-height: 48px;
+  grid-template-columns: minmax(0, 1fr) 44px;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.internship-note-link > span {
+  align-self: end;
+  font-size: 0.84rem;
   font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
 }
 
-.candidate-overview dd {
-  margin: 0;
-}
-
-.candidate-overview strong {
-  display: block;
-  font-size: 0.88rem;
-  line-height: 1.5;
+.internship-note-link small {
+  grid-column: 1;
+  align-self: start;
+  color: var(--muted);
+  font-size: 0.7rem;
   overflow-wrap: anywhere;
 }
 
-.candidate-overview dd > span {
-  display: block;
-  margin-top: 4px;
-  color: var(--muted);
-  font-size: 0.72rem;
-}
-
-.candidate-overview a {
-  text-decoration: underline;
-  text-decoration-color: var(--line);
-  text-underline-offset: 4px;
-  transition: color 160ms ease, text-decoration-color 160ms ease;
-}
-
-.candidate-overview a:hover {
+.internship-note-link i {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  grid-column: 2;
+  grid-row: 1 / 3;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface);
   color: var(--blue);
-  text-decoration-color: currentColor;
+  font-size: 1.3rem;
+  font-style: normal;
+  transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
+}
+
+.internship-note-link:hover i {
+  transform: translate(2px, -2px);
+  border-color: var(--blue);
+  background: var(--blue-soft);
 }
 
 .section {
@@ -1444,15 +1454,17 @@ p {
     column-gap: clamp(50px, 7vw, 88px);
   }
 
-  .candidate-overview {
+  .internship-note {
     grid-column: 1 / -1;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
     margin-top: 22px;
   }
 
-  .candidate-overview > div + div {
-    border-top: 0;
-    border-left: 1px solid var(--line);
+  .internship-note-link {
+    flex-shrink: 0;
   }
 
   .section-header {
