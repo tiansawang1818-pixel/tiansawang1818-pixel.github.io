@@ -35,8 +35,27 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700;800&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/style.css?v=20261105-8" />
-    <script src="js/main.js?v=20261105-4" defer></script>
+    <link rel="stylesheet" href="css/style.css?v=20261110-1" />
+    <script src="js/main.js?v=20261110-1" defer></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Tiansawang Suetrong",
+        "alternateName": "เทียนสว่าง ซื่อตรง",
+        "jobTitle": "Software Engineer Intern candidate",
+        "url": "https://tiansawang1818-pixel.github.io/",
+        "image": "https://tiansawang1818-pixel.github.io/assets/images/tiansawang-profile.jpg",
+        "email": "mailto:tiansawang1818@gmail.com",
+        "address": { "@type": "PostalAddress", "addressLocality": "Bangkok", "addressCountry": "TH" },
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Mahidol University, Faculty of Information and Communication Technology"
+        },
+        "knowsAbout": ["TypeScript", "React", "Python", "Java", "SQL", "PostgreSQL", "PostGIS", "Supabase", "Node.js", "WebAssembly"],
+        "sameAs": ["https://github.com/tiansawang1818-pixel"]
+      }
+    </script>
   </head>
 
   <body>
@@ -56,6 +75,7 @@
         <div class="nav-links" id="nav-links">
           <a href="#projects">Projects</a>
           <a href="#skills">Skills</a>
+          <a href="#more-work">More work</a>
           <a href="#about">About</a>
           <a href="#experience">Activities</a>
           <a href="#contact">Contact</a>
@@ -107,6 +127,15 @@
                 Download résumé <span>↓</span>
               </a>
             </div>
+            <ul class="hero-quick" aria-label="Quick links">
+              <li>
+                <a href="https://github.com/tiansawang1818-pixel" target="_blank" rel="noreferrer">
+                  GitHub <span aria-hidden="true">↗</span>
+                </a>
+              </li>
+              <li><a href="mailto:tiansawang1818@gmail.com">Email <span aria-hidden="true">↗</span></a></li>
+              <li><a href="https://wasmbot-studio.vercel.app/" target="_blank" rel="noreferrer">Live project <span aria-hidden="true">↗</span></a></li>
+            </ul>
           </div>
 
           <aside class="profile-card reveal" aria-label="Candidate summary">
@@ -181,14 +210,23 @@
                   editor to versioned deployment and API access.
                 </p>
                 <p class="project-role"><strong>My role</strong> Full-stack development</p>
+                <ol class="project-flow" aria-label="How WasmBot Studio works">
+                  <li><span>Design</span> Visual rule builder</li>
+                  <li><span>Test</span> Rust WASM runtime</li>
+                  <li><span>Publish</span> Immutable version</li>
+                  <li><span>Use</span> Form · Embed · API · SDK</li>
+                </ol>
                 <ul class="project-highlights" aria-label="WasmBot Studio contributions">
                   <li>Built a nested AND/OR rule editor supporting <strong>12 operators</strong>.</li>
-                  <li>Implemented immutable deployment snapshots, row-level security, and scoped API keys.</li>
+                  <li>Implemented immutable deployment snapshots so draft edits never affect the live version.</li>
+                  <li>Secured access with PostgreSQL row-level security, scoped API keys hashed with HMAC-SHA256, and rate limits.</li>
                   <li>Integrated a Rust WebAssembly engine with <strong>7 Edge Functions</strong> and tested deployed workflows.</li>
                 </ul>
                 <ul class="tags" aria-label="WasmBot Studio technologies">
                   <li>TypeScript</li>
                   <li>React</li>
+                  <li>Vite</li>
+                  <li>Tailwind CSS</li>
                   <li>Supabase</li>
                   <li>PostgreSQL</li>
                   <li>Rust WebAssembly</li>
@@ -281,7 +319,7 @@
             <article class="skill-card reveal">
               <span class="skill-index">03</span>
               <h3>Backend &amp; Database</h3>
-              <ul><li>Node.js</li><li>REST APIs</li><li>Supabase</li><li>PostgreSQL</li><li>PostGIS</li><li>MySQL</li></ul>
+              <ul><li>Node.js</li><li>Express.js</li><li>REST APIs</li><li>Supabase</li><li>PostgreSQL</li><li>PostGIS</li><li>MySQL</li></ul>
             </article>
             <article class="skill-card reveal">
               <span class="skill-index">04</span>
@@ -291,8 +329,41 @@
             <article class="skill-card reveal">
               <span class="skill-index">05</span>
               <h3>Tools</h3>
-              <ul><li>Git</li><li>GitHub</li><li>VS Code</li><li>Rust WebAssembly</li></ul>
+              <ul><li>Git</li><li>GitHub</li><li>VS Code</li><li>Linux</li><li>Postman</li><li>npm</li><li>Unit testing</li><li>Rust WebAssembly</li></ul>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section more-section" id="more-work" aria-labelledby="more-title">
+        <div class="container">
+          <header class="section-header reveal">
+            <div>
+              <p class="eyebrow">More on GitHub</p>
+              <h2 id="more-title">Smaller builds and practice that keep the fundamentals sharp.</h2>
+            </div>
+            <p>Coursework and side projects where I practise testing, web fundamentals, and shipping a polished static site.</p>
+          </header>
+
+          <div class="more-grid">
+            <a class="more-card reveal" href="https://github.com/tiansawang1818-pixel/tiansawang1818-pixel.github.io" target="_blank" rel="noreferrer">
+              <span class="more-lang"><i style="--dot: #e34c26"></i>HTML · CSS · JS</span>
+              <h3>This portfolio</h3>
+              <p>Buildless, responsive site with dark mode, keyboard-friendly navigation, reduced-motion support, and a print-ready layout.</p>
+              <span class="more-link">View repository <span aria-hidden="true">↗</span></span>
+            </a>
+            <a class="more-card reveal" href="https://github.com/tiansawang1818-pixel/python-calculator" target="_blank" rel="noreferrer">
+              <span class="more-lang"><i style="--dot: #3572a5"></i>Python</span>
+              <h3>python-calculator</h3>
+              <p>Unit-testing practice: writing test cases for a calculator class that adds, subtracts, multiplies, and divides.</p>
+              <span class="more-link">View repository <span aria-hidden="true">↗</span></span>
+            </a>
+            <a class="more-card reveal" href="https://github.com/tiansawang1818-pixel/HTML101" target="_blank" rel="noreferrer">
+              <span class="more-lang"><i style="--dot: #e34c26"></i>HTML · CSS</span>
+              <h3>HTML101</h3>
+              <p>Web fundamentals labs covering semantic HTML, page layout, styling, and multi-page sites.</p>
+              <span class="more-link">View repository <span aria-hidden="true">↗</span></span>
+            </a>
           </div>
         </div>
       </section>

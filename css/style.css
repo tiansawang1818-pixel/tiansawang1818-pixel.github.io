@@ -258,7 +258,7 @@ p {
 .brand-copy small {
   margin-top: 4px;
   color: var(--muted);
-  font-size: 0.6rem;
+  font-size: 0.66rem;
   font-weight: 700;
   letter-spacing: 0.13em;
   text-transform: uppercase;
@@ -419,7 +419,7 @@ p {
 .skill-index,
 .education-year,
 .activity-year {
-  font-size: 0.66rem;
+  font-size: 0.74rem;
   font-weight: 800;
   letter-spacing: 0.13em;
   text-transform: uppercase;
@@ -598,7 +598,7 @@ p {
 .profile-summary > p {
   margin-bottom: 3px;
   color: var(--muted);
-  font-size: 0.68rem;
+  font-size: 0.74rem;
   font-weight: 750;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -888,7 +888,7 @@ p {
 
 .project-content > p:not(.project-role) {
   color: var(--muted);
-  font-size: 0.87rem;
+  font-size: 0.94rem;
 }
 
 .project-role {
@@ -908,7 +908,7 @@ p {
   padding-left: 18px;
   gap: 11px;
   color: var(--muted);
-  font-size: 0.8rem;
+  font-size: 0.88rem;
   line-height: 1.7;
 }
 
@@ -924,7 +924,7 @@ p {
 .project-content > p.project-note {
   margin: 17px 0 0;
   color: var(--muted);
-  font-size: 0.68rem;
+  font-size: 0.76rem;
   line-height: 1.65;
 }
 
@@ -947,7 +947,7 @@ p {
   border: 1px solid var(--line);
   border-radius: 99px;
   color: var(--muted);
-  font-size: 0.63rem;
+  font-size: 0.72rem;
   font-weight: 750;
 }
 
@@ -1125,7 +1125,7 @@ p {
 
 .education-heading > span {
   color: var(--muted);
-  font-size: 0.65rem;
+  font-size: 0.72rem;
   font-weight: 700;
 }
 
@@ -1211,7 +1211,7 @@ p {
 .activity-card p {
   margin-bottom: 5px;
   color: var(--muted);
-  font-size: 0.68rem;
+  font-size: 0.74rem;
   font-weight: 750;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1302,7 +1302,7 @@ p {
 
 .contact-list span {
   color: var(--cta-muted);
-  font-size: 0.62rem;
+  font-size: 0.7rem;
   font-weight: 800;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -1327,7 +1327,7 @@ p {
   padding-block: 31px;
   gap: 7px;
   color: var(--muted);
-  font-size: 0.68rem;
+  font-size: 0.76rem;
   text-align: center;
 }
 
@@ -1343,17 +1343,157 @@ p {
 .reveal {
   opacity: 1;
   transform: none;
-  transition: opacity 560ms ease, transform 560ms ease;
+  transition: opacity 420ms ease, transform 420ms ease;
 }
 
 .has-reveal .reveal {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(12px);
 }
 
 .has-reveal .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Hero quick links */
+.hero-quick {
+  display: flex;
+  margin: 22px 0 0;
+  padding: 0;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  list-style: none;
+}
+
+.hero-quick a {
+  display: inline-flex;
+  min-height: 32px;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+  border-bottom: 1px solid transparent;
+  transition: color 160ms ease, border-color 160ms ease;
+}
+
+.hero-quick a:hover {
+  color: var(--blue);
+  border-color: currentColor;
+}
+
+/* Project flow (how it works) */
+.project-flow {
+  display: grid;
+  margin: 22px 0 0;
+  padding: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+  list-style: none;
+  counter-reset: flow;
+}
+
+.project-flow li {
+  position: relative;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface-alt);
+  color: var(--text);
+  font-size: 0.78rem;
+  font-weight: 650;
+  line-height: 1.35;
+  counter-increment: flow;
+}
+
+.project-flow li span {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--blue);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-flow li span::before {
+  content: counter(flow, decimal-leading-zero) " ";
+  color: var(--muted);
+}
+
+/* More work */
+.more-section {
+  border-top: 1px solid var(--line);
+}
+
+.more-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.more-card {
+  display: flex;
+  min-width: 0;
+  padding: 26px;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.more-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--blue);
+}
+
+.more-lang {
+  display: inline-flex;
+  margin-bottom: 22px;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.74rem;
+}
+
+.more-lang i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--dot, var(--blue));
+}
+
+.more-card h3 {
+  margin-bottom: 10px;
+  font-size: 1.35rem;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.more-card p {
+  margin-bottom: 22px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.more-link {
+  display: inline-flex;
+  margin-top: auto;
+  width: fit-content;
+  gap: 7px;
+  border-bottom: 1px solid currentColor;
+  color: var(--blue);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+@media (min-width: 650px) {
+  .more-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 @media (min-width: 650px) {
@@ -1571,5 +1711,116 @@ p {
   .has-reveal .reveal {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* Print: a clean, ink-friendly résumé when saved as PDF or printed */
+@media print {
+  @page {
+    margin: 14mm 12mm;
+  }
+
+  :root,
+  :root[data-theme="dark"] {
+    color-scheme: light;
+    --bg: #ffffff;
+    --surface: #ffffff;
+    --surface-alt: #ffffff;
+    --text: #000000;
+    --muted: #333333;
+    --line: #cccccc;
+    --blue: #1d4ed8;
+    --contrast-bg: #ffffff;
+    --contrast-surface: #ffffff;
+    --contrast-text: #000000;
+    --contrast-muted: #333333;
+    --contrast-line: #cccccc;
+    --contrast-chip: #cccccc;
+    --cta-bg: #ffffff;
+    --cta-text: #000000;
+    --cta-muted: #333333;
+    --cta-line: #cccccc;
+    --shadow-sm: none;
+    --shadow-lg: none;
+  }
+
+  body {
+    font-size: 10.5pt;
+    line-height: 1.45;
+  }
+
+  body::before,
+  .site-header,
+  .skip-link,
+  .hero-actions,
+  .internship-note,
+  .project-visual,
+  .project-note,
+  .contact-actions,
+  .site-footer,
+  .activity-card::after {
+    display: none !important;
+  }
+
+  .has-reveal .reveal,
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .section,
+  .hero {
+    padding: 14pt 0 !important;
+    min-height: 0 !important;
+  }
+
+  .section-header {
+    margin-bottom: 10pt;
+  }
+
+  .section-header > p {
+    display: none;
+  }
+
+  .section-header h2,
+  .about-copy h2,
+  .contact-copy h2 {
+    font-size: 15pt;
+    letter-spacing: -0.01em;
+  }
+
+  .project-content h3 {
+    font-size: 15pt;
+  }
+
+  .project-card,
+  .skill-card,
+  .more-card,
+  .activity-card,
+  .education-item,
+  .project-flow li {
+    break-inside: avoid;
+  }
+
+  .project-content {
+    padding: 10pt 0;
+  }
+
+  .project-card,
+  .contact-card {
+    border: 0;
+    padding: 0;
+  }
+
+  .more-card,
+  .activity-card {
+    min-height: 0;
+  }
+
+  a[href^="http"]:not(.more-card)::after {
+    content: " (" attr(href) ")";
+    color: #555555;
+    font-size: 8pt;
+    font-weight: 400;
   }
 }
