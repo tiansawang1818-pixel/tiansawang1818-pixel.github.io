@@ -1714,6 +1714,308 @@ p {
   }
 }
 
+/* ============ Effects ============ */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Hero particle canvas + aurora */
+.hero-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 35%, black 40%, transparent 100%);
+}
+
+.hero-aurora {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  pointer-events: none;
+  filter: blur(60px);
+  opacity: 0.75;
+}
+
+.hero-aurora i {
+  position: absolute;
+  width: 32rem;
+  height: 32rem;
+  border-radius: 50%;
+  animation: aurora-drift 22s ease-in-out infinite alternate;
+}
+
+.hero-aurora i:nth-child(1) {
+  top: -12rem;
+  left: -8rem;
+  background: color-mix(in srgb, var(--blue) 35%, transparent);
+}
+
+.hero-aurora i:nth-child(2) {
+  top: 4rem;
+  right: -10rem;
+  background: color-mix(in srgb, #8b5cf6 26%, transparent);
+  animation-duration: 26s;
+  animation-delay: -8s;
+}
+
+.hero-aurora i:nth-child(3) {
+  bottom: -14rem;
+  left: 30%;
+  background: color-mix(in srgb, #22d3ee 24%, transparent);
+  animation-duration: 30s;
+  animation-delay: -14s;
+}
+
+@keyframes aurora-drift {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(6rem, 3rem) scale(1.15); }
+  100% { transform: translate(-4rem, 5rem) scale(0.9); }
+}
+
+/* Shimmering surname */
+.hero h1 .shimmer-text {
+  background: linear-gradient(
+    100deg,
+    var(--blue) 0%,
+    var(--blue) 35%,
+    #8b5cf6 45%,
+    #22d3ee 52%,
+    var(--blue) 62%,
+    var(--blue) 100%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 6s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 15% { background-position: 100% 0; }
+  60%, 100% { background-position: 0 0; }
+}
+
+/* Typewriter */
+.typer {
+  color: var(--blue);
+}
+
+.typer.is-typing::after {
+  display: inline-block;
+  width: 2px;
+  height: 1.05em;
+  margin-left: 3px;
+  vertical-align: -0.12em;
+  background: currentColor;
+  content: "";
+  animation: caret 900ms steps(1) infinite;
+}
+
+@keyframes caret {
+  50% { opacity: 0; }
+}
+
+/* 3D tilt profile card */
+[data-tilt] {
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 500ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 420ms ease,
+    box-shadow 300ms ease;
+}
+
+[data-tilt].is-tilting {
+  transition: transform 80ms linear, box-shadow 300ms ease;
+}
+
+.tilt-glare {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    circle at var(--gx, 50%) var(--gy, 50%),
+    rgba(255, 255, 255, 0.35),
+    transparent 55%
+  );
+  mix-blend-mode: soft-light;
+  transition: opacity 300ms ease;
+}
+
+[data-tilt].is-tilting .tilt-glare {
+  opacity: 1;
+}
+
+/* Cursor spotlight on cards */
+.glow {
+  position: relative;
+  isolation: isolate;
+}
+
+.glow::before {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  padding: 1px;
+  border-radius: inherit;
+  pointer-events: none;
+  content: "";
+  opacity: 0;
+  background: radial-gradient(
+    380px circle at var(--mx, 50%) var(--my, 50%),
+    color-mix(in srgb, var(--blue) 90%, white),
+    color-mix(in srgb, #8b5cf6 60%, transparent) 30%,
+    transparent 60%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  transition: opacity 250ms ease;
+}
+
+.glow:not(.activity-card)::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  content: "";
+  opacity: 0;
+  background: radial-gradient(
+    500px circle at var(--mx, 50%) var(--my, 50%),
+    color-mix(in srgb, var(--blue) 14%, transparent),
+    transparent 45%
+  );
+  transition: opacity 250ms ease;
+}
+
+.glow:hover::before,
+.glow:not(.activity-card):hover::after {
+  opacity: 1;
+}
+
+/* Magnetic buttons */
+[data-magnetic] {
+  transition: transform 350ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 200ms ease,
+    background-color 160ms ease;
+}
+
+[data-magnetic].is-magnet {
+  transition: transform 90ms linear;
+}
+
+.button-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.button-primary::after {
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  transform: skewX(-20deg);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.45), transparent);
+  content: "";
+  animation: sheen 4.5s ease-in-out infinite;
+}
+
+@keyframes sheen {
+  0%, 70% { left: -60%; }
+  100% { left: 130%; }
+}
+
+/* Tech marquee */
+.tech-marquee {
+  display: flex;
+  overflow: hidden;
+  margin-top: clamp(48px, 7vw, 80px);
+  padding: 18px 0;
+  border-block: 1px solid var(--line);
+  user-select: none;
+  mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+  gap: 14px;
+  padding-right: 14px;
+  list-style: none;
+  animation: marquee 38s linear infinite;
+}
+
+.tech-marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-track li {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: color 160ms ease;
+}
+
+.marquee-track li::after {
+  color: var(--blue);
+  content: "✦";
+  font-size: 0.7rem;
+}
+
+.marquee-track li:hover {
+  color: var(--text);
+}
+
+@keyframes marquee {
+  to { transform: translateX(-100%); }
+}
+
+.projects-section {
+  border-top: 0;
+}
+
+/* Count-up numbers keep width steady */
+.count {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-aurora i,
+  .hero h1 .shimmer-text,
+  .button-primary::after,
+  .marquee-track,
+  .typer.is-typing::after {
+    animation: none !important;
+  }
+
+  .hero-canvas {
+    display: none;
+  }
+
+  .tech-marquee {
+    overflow-x: auto;
+  }
+}
+
 /* Print: a clean, ink-friendly résumé when saved as PDF or printed */
 @media print {
   @page {
@@ -1758,12 +2060,24 @@ p {
   .project-note,
   .contact-actions,
   .site-footer,
+  .hero-canvas,
+  .hero-aurora,
+  .tech-marquee,
+  .tilt-glare,
+  .glow::before,
+  .glow::after,
   .activity-card::after {
     display: none !important;
   }
 
+  .hero h1 .shimmer-text {
+    background: none;
+    color: #1d4ed8;
+  }
+
   .has-reveal .reveal,
-  .reveal {
+  .reveal,
+  [data-tilt] {
     opacity: 1 !important;
     transform: none !important;
   }

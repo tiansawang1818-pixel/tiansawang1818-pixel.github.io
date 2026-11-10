@@ -35,8 +35,8 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700;800&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/style.css?v=20261110-1" />
-    <script src="js/main.js?v=20261110-1" defer></script>
+    <link rel="stylesheet" href="css/style.css?v=20261111-1" />
+    <script src="js/main.js?v=20261111-1" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -109,20 +109,26 @@
 
     <main id="main-content">
       <section class="hero" id="top" aria-labelledby="hero-title">
+        <canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
+        <div class="hero-aurora" aria-hidden="true"><i></i><i></i><i></i></div>
         <div class="container hero-layout">
           <div class="hero-copy reveal">
             <p class="availability-line"><i></i> Open to internship opportunities</p>
             <p class="hero-role">Software Engineer Intern</p>
-            <h1 id="hero-title">Tiansawang <span>Suetrong</span></h1>
+            <h1 id="hero-title">Tiansawang <span class="shimmer-text">Suetrong</span></h1>
             <p class="name-th" lang="th">เทียนสว่าง ซื่อตรง</p>
-            <p class="hero-value">Building web applications, APIs, and data-driven systems.</p>
+            <p class="hero-value">
+              <span class="sr-only">Building web applications, APIs, and data-driven systems.</span>
+              <span aria-hidden="true">Building
+                <span class="typer" id="typer" data-words="web applications.|REST APIs.|data-driven systems.|geospatial tools.|no-code platforms.">web applications, APIs, and data-driven systems.</span></span>
+            </p>
             <p class="hero-intro">
               Digital Science and Technology student at Mahidol University with hands-on
               experience taking full-stack projects from interface and database design to
               testing and deployment.
             </p>
             <div class="hero-actions">
-              <a class="button button-primary" href="#projects">View selected work <span>↓</span></a>
+              <a class="button button-primary" data-magnetic href="#projects">View selected work <span>↓</span></a>
               <a class="button button-secondary" href="resume.pdf" download>
                 Download résumé <span>↓</span>
               </a>
@@ -138,7 +144,8 @@
             </ul>
           </div>
 
-          <aside class="profile-card reveal" aria-label="Candidate summary">
+          <aside class="profile-card reveal" data-tilt aria-label="Candidate summary">
+            <span class="tilt-glare" aria-hidden="true"></span>
             <div class="profile-media">
               <img
                 src="assets/images/tiansawang-profile.jpg"
@@ -173,6 +180,11 @@
           </div>
         </div>
       </section>
+
+      <div class="tech-marquee" aria-label="Technologies I work with">
+        <ul class="marquee-track"><li>TypeScript</li><li>React</li><li>Rust WebAssembly</li><li>Supabase</li><li>PostgreSQL</li><li>PostGIS</li><li>Python</li><li>Java</li><li>Node.js</li><li>Express.js</li><li>SQL</li><li>Tailwind CSS</li><li>Vite</li><li>Git</li></ul>
+        <ul class="marquee-track" aria-hidden="true"><li>TypeScript</li><li>React</li><li>Rust WebAssembly</li><li>Supabase</li><li>PostgreSQL</li><li>PostGIS</li><li>Python</li><li>Java</li><li>Node.js</li><li>Express.js</li><li>SQL</li><li>Tailwind CSS</li><li>Vite</li><li>Git</li></ul>
+      </div>
 
       <section class="section projects-section" id="projects" aria-labelledby="projects-title">
         <div class="container">
@@ -217,10 +229,10 @@
                   <li><span>Use</span> Form · Embed · API · SDK</li>
                 </ol>
                 <ul class="project-highlights" aria-label="WasmBot Studio contributions">
-                  <li>Built a nested AND/OR rule editor supporting <strong>12 operators</strong>.</li>
+                  <li>Built a nested AND/OR rule editor supporting <strong><span class="count" data-count="12">12</span> operators</strong>.</li>
                   <li>Implemented immutable deployment snapshots so draft edits never affect the live version.</li>
                   <li>Secured access with PostgreSQL row-level security, scoped API keys hashed with HMAC-SHA256, and rate limits.</li>
-                  <li>Integrated a Rust WebAssembly engine with <strong>7 Edge Functions</strong> and tested deployed workflows.</li>
+                  <li>Integrated a Rust WebAssembly engine with <strong><span class="count" data-count="7">7</span> Edge Functions</strong> and tested deployed workflows.</li>
                 </ul>
                 <ul class="tags" aria-label="WasmBot Studio technologies">
                   <li>TypeScript</li>
@@ -269,7 +281,7 @@
                 </p>
                 <p class="project-role"><strong>My role</strong> System and data workflow design</p>
                 <ul class="project-highlights" aria-label="HEAT SHIFT contributions">
-                  <li>Designed a <strong>6-stage data workflow</strong>, from staging and validation to publishing and client updates.</li>
+                  <li>Designed a <strong><span class="count" data-count="6">6</span>-stage data workflow</strong>, from staging and validation to publishing and client updates.</li>
                   <li>Built versioned PostgreSQL/PostGIS datasets and a City Optimizer workflow.</li>
                   <li>Added evidence reports with data versions, uncertainty, and stale-result warnings.</li>
                 </ul>
@@ -450,7 +462,7 @@
               applications, APIs, and data workflows. Email is the fastest way to reach me.
             </p>
             <div class="contact-actions">
-              <a class="button button-contact" href="mailto:tiansawang1818@gmail.com">
+              <a class="button button-contact" data-magnetic href="mailto:tiansawang1818@gmail.com">
                 Start a conversation <span>↗</span>
               </a>
               <a class="button button-contact-secondary" href="resume.pdf" target="_blank">
