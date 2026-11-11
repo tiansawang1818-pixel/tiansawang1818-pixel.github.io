@@ -21,7 +21,8 @@ A buildless, responsive portfolio for software engineering internship applicatio
 │       ├── heat-shift-live.jpg
 │       ├── portfolio-preview.jpg
 │       ├── tiansawang-profile.jpg
-│       └── wasmbot-dashboard.png
+│       ├── wasmbot-live-dashboard.jpg
+│       └── wasmbot-live-rules.jpg
 ├── resume.pdf
 ├── robots.txt
 ├── sitemap.xml
@@ -57,7 +58,7 @@ Then open `http://localhost:4173`.
 
 ## Project evidence and image sources
 
-- **WasmBot Studio:** the screenshot comes from the project's public repository at `.github/assets/wasmbot-studio-dashboard.png`. The application requires sign-in, so the portfolio also links directly to the screenshot and source code. The 12 operators, 7 Edge Functions, and contributions are documented in the supplied resume and project source.
+- **WasmBot Studio:** `wasmbot-live-dashboard.jpg` and `wasmbot-live-rules.jpg` were captured from the live app at https://wasmbot-studio.vercel.app/ on 11 November 2026 while signed in. The app requires sign-in, so the portfolio also links to the source code and the rule-editor screenshot. The 12 operators, 7 Edge Functions, and contributions are documented in the supplied resume and project source.
 - **HEAT//SHIFT:** live public pilot at https://heatshift.hostless.app/. The screenshot `heat-shift-live.jpg` was captured from the live City Explorer on 11 November 2026. The source repository remains private; admin tools require authorised sign-in.
 - **Sharing image:** `portfolio-preview.jpg` is a screenshot of this portfolio.
 
