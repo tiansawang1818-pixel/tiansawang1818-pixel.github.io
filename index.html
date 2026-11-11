@@ -140,7 +140,8 @@
                 </a>
               </li>
               <li><a href="mailto:tiansawang1818@gmail.com">Email <span aria-hidden="true">↗</span></a></li>
-              <li><a href="https://wasmbot-studio.vercel.app/" target="_blank" rel="noreferrer">Live project <span aria-hidden="true">↗</span></a></li>
+              <li><a href="https://wasmbot-studio.vercel.app/" target="_blank" rel="noreferrer">WasmBot live <span aria-hidden="true">↗</span></a></li>
+              <li><a href="https://heatshift.hostless.app/" target="_blank" rel="noreferrer">HEAT//SHIFT live <span aria-hidden="true">↗</span></a></li>
             </ul>
           </div>
 
@@ -194,7 +195,7 @@
               <h2 id="projects-title">Work that connects product thinking with implementation.</h2>
             </div>
             <p>
-              A deployed no-code platform and a geospatial system in development, with a clear
+              Two deployed products, a no-code platform and a live geospatial decision system, with a clear
               view of what I built and how each project works.
             </p>
           </header>
@@ -261,13 +262,13 @@
             <article class="project-card reveal">
               <div class="project-visual project-screenshot">
                 <img
-                  src="assets/images/heat-shift-app.jpg"
-                  alt="Actual HEAT SHIFT development interface showing the Bangkok map, layer controls, and a clearly labelled demo mode"
-                  width="1280"
-                  height="720"
+                  src="assets/images/heat-shift-live.jpg"
+                  alt="Live HEAT SHIFT City Explorer showing Bangkok districts shaded by heat-exposure priority, live weather context, and data layer controls"
+                  width="800"
+                  height="450"
                   loading="lazy"
                 />
-                <span class="project-status">In development</span>
+                <span class="project-status project-status-live">Live pilot</span>
               </div>
               <div class="project-content">
                 <div class="project-topline">
@@ -276,28 +277,37 @@
                 </div>
                 <h3>HEAT//SHIFT</h3>
                 <p>
-                  A map-first platform in development for planning urban heat mitigation
-                  investments in Bangkok with traceable geospatial data.
+                  A map-first decision platform for planning urban heat mitigation investments
+                  in Bangkok, running live on real satellite, weather, population, and
+                  OpenStreetMap data with traceable versions.
                 </p>
                 <p class="project-role"><strong>My role</strong> System and data workflow design</p>
                 <ul class="project-highlights" aria-label="HEAT SHIFT contributions">
                   <li>Designed a <strong><span class="count" data-count="6">6</span>-stage data workflow</strong>, from staging and validation to publishing and client updates.</li>
-                  <li>Built versioned PostgreSQL/PostGIS datasets and a City Optimizer workflow.</li>
+                  <li>Built versioned PostgreSQL/PostGIS datasets for all <strong><span class="count" data-count="50">50</span> Bangkok districts</strong> and a City Optimizer using OR-Tools.</li>
+                  <li>Deployed a FastAPI, Next.js, Celery, and Redis stack on free-tier hosting with live updates over SSE.</li>
                   <li>Added evidence reports with data versions, uncertainty, and stale-result warnings.</li>
                 </ul>
                 <ul class="tags" aria-label="HEAT SHIFT technologies">
                   <li>Python</li>
+                  <li>FastAPI</li>
+                  <li>Next.js</li>
                   <li>PostgreSQL</li>
                   <li>PostGIS</li>
-                  <li>Geospatial data</li>
+                  <li>Celery</li>
+                  <li>Redis</li>
+                  <li>MapLibre</li>
                 </ul>
                 <div class="project-links">
-                  <a href="assets/images/heat-shift-app.jpg" target="_blank" rel="noreferrer">
-                    View interface <span aria-hidden="true">↗</span>
+                  <a href="https://heatshift.hostless.app/" target="_blank" rel="noreferrer">
+                    Open live app <span aria-hidden="true">↗</span>
+                  </a>
+                  <a href="assets/images/heat-shift-live.jpg" target="_blank" rel="noreferrer">
+                    Screenshot <span aria-hidden="true">↗</span>
                   </a>
                   <span class="project-private">Private repository</span>
                 </div>
-                <p class="project-note">Screenshot from the development app in demo mode; it does not show live measurements or validated results.</p>
+                <p class="project-note">Public pilot: the map, risk analysis, and budget planning are open without sign-in; admin tools require authorised login. Some district layers may still be processing.</p>
               </div>
             </article>
           </div>
