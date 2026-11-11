@@ -35,8 +35,8 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700;800&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/style.css?v=20261111-1" />
-    <script src="js/main.js?v=20261111-1" defer></script>
+    <link rel="stylesheet" href="css/style.css?v=20261111-2" />
+    <script src="js/main.js?v=20261111-2" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -154,7 +154,7 @@
                 width="230"
                 height="312"
               />
-              <span class="profile-location">Bangkok · UTC+7</span>
+              <span class="profile-location">Bangkok · <time id="bkk-clock">UTC+7</time></span>
             </div>
             <div class="profile-summary">
               <p>Mahidol University</p>
@@ -203,6 +203,11 @@
           <div class="projects-grid">
             <article class="project-card reveal">
               <div class="project-visual project-screenshot">
+                <div class="browser-bar" aria-hidden="true">
+                  <span class="browser-dots"><i></i><i></i><i></i></span>
+                  <span class="browser-url"><b>🔒</b> wasmbot-studio.vercel.app</span>
+                </div>
+                <div class="shot">
                 <img
                   src="assets/images/wasmbot-live-dashboard.jpg"
                   alt="Live WasmBot Studio dashboard showing the bot overview, quick actions, and usage statistics"
@@ -210,6 +215,7 @@
                   height="500"
                   loading="lazy"
                 />
+                </div>
                 <span class="project-status project-status-live">Deployed</span>
               </div>
               <div class="project-content">
@@ -261,6 +267,11 @@
 
             <article class="project-card reveal">
               <div class="project-visual project-screenshot">
+                <div class="browser-bar" aria-hidden="true">
+                  <span class="browser-dots"><i></i><i></i><i></i></span>
+                  <span class="browser-url"><b>🔒</b> heatshift.hostless.app</span>
+                </div>
+                <div class="shot">
                 <img
                   src="assets/images/heat-shift-live.jpg"
                   alt="Live HEAT SHIFT City Explorer showing Bangkok districts shaded by heat-exposure priority, live weather context, and data layer controls"
@@ -268,6 +279,7 @@
                   height="450"
                   loading="lazy"
                 />
+                </div>
                 <span class="project-status project-status-live">Live pilot</span>
               </div>
               <div class="project-content">
@@ -503,5 +515,11 @@
         <a href="#top">Back to top ↑</a>
       </div>
     </footer>
+    <button class="to-top" id="to-top" type="button" aria-label="Back to top">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><circle class="to-top-track" cx="24" cy="24" r="21"/><circle class="to-top-ring" id="to-top-ring" cx="24" cy="24" r="21"/></svg>
+      <span aria-hidden="true">↑</span>
+    </button>
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true"></div>
   </body>
 </html>

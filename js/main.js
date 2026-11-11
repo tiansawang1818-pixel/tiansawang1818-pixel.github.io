@@ -35,9 +35,26 @@ function applyTheme(theme) {
 
 applyTheme(initialTheme);
 
-themeToggle?.addEventListener("click", () => {
+themeToggle?.addEventListener("click", (event) => {
   const nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
-  applyTheme(nextTheme);
+  const canWipe =
+    document.startViewTransition &&
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (canWipe) {
+    // Circular wipe from the toggle button.
+    const x = event.clientX || window.innerWidth - 40;
+    const y = event.clientY || 36;
+    const radius = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y));
+    const transition = document.startViewTransition(() => applyTheme(nextTheme));
+    transition.ready.then(() => {
+      document.documentElement.animate(
+        { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`] },
+        { duration: 650, easing: "cubic-bezier(0.2, 0.8, 0.2, 1)", pseudoElement: "::view-transition-new(root)" },
+      );
+    });
+  } else {
+    applyTheme(nextTheme);
+  }
   try {
     localStorage.setItem("portfolio-theme", nextTheme);
   } catch {
@@ -366,3 +383,184 @@ if (finePointer && !reducedMotion) {
     });
   });
 }
+
+/* ================= Effects v2 ================= */
+
+// Hero name: first name rises letter by letter, surname follows as one shimmering piece.
+const heroTitle = document.querySelector("#hero-title");
+if (heroTitle && !reducedMotion) {
+  let index = 0;
+  heroTitle.childNodes.forEach((node) => {
+    if (node.nodeType !== Node.TEXT_NODE || !node.textContent.trim()) return;
+    const fragment = document.createDocumentFragment();
+    [...node.textContent].forEach((char) => {
+      if (char === " ") {
+        fragment.append(" ");
+        return;
+      }
+      const span = document.createElement("span");
+      span.className = "split-letter";
+      span.setAttribute("aria-hidden", "true");
+      span.style.setProperty("--i", String(index++));
+      span.textContent = char;
+      fragment.append(span);
+    });
+    node.replaceWith(fragment);
+  });
+  heroTitle.setAttribute("aria-label", "Tiansawang Suetrong");
+  heroTitle.querySelector(".shimmer-text")?.classList.add("split-whole");
+}
+
+// Section headings: words slide up into view.
+const splitHeadings = document.querySelectorAll(".section-header h2, .about-copy h2, .contact-copy h2");
+if (splitHeadings.length && !reducedMotion && "IntersectionObserver" in window) {
+  splitHeadings.forEach((heading) => {
+    const words = heading.textContent.trim().split(/\s+/);
+    heading.setAttribute("aria-label", heading.textContent.trim());
+    heading.innerHTML = words
+      .map(
+        (word, i) =>
+          `<span class="split-word" aria-hidden="true"><span style="--w:${i}">${word}</span></span>`,
+      )
+      .join(" ");
+  });
+  const headingObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("words-in");
+        headingObserver.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.4 },
+  );
+  splitHeadings.forEach((heading) => headingObserver.observe(heading));
+}
+
+// Live Bangkok clock on the profile card.
+const bkkClock = document.querySelector("#bkk-clock");
+if (bkkClock) {
+  const formatter = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Asia/Bangkok",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  const tickClock = () => {
+    bkkClock.textContent = formatter.format(new Date());
+    bkkClock.dateTime = new Date().toISOString();
+  };
+  tickClock();
+  setInterval(tickClock, 15000);
+}
+
+// Back-to-top button with a scroll progress ring, and screenshot parallax.
+const toTop = document.querySelector("#to-top");
+const toTopRing = document.querySelector("#to-top-ring");
+const shots = [...document.querySelectorAll(".shot img")];
+let scrollTicking = false;
+const onScrollEffects = () => {
+  scrollTicking = false;
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
+  toTop?.classList.toggle("is-shown", window.scrollY > window.innerHeight * 0.8);
+  if (toTopRing) toTopRing.style.strokeDashoffset = String(132 * (1 - progress));
+  if (!reducedMotion) {
+    shots.forEach((img) => {
+      const rect = img.parentElement.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+      const centerOffset = (rect.top + rect.height / 2 - window.innerHeight / 2) / window.innerHeight;
+      img.style.setProperty("--parallax", `${(centerOffset * -18).toFixed(1)}px`);
+    });
+  }
+};
+window.addEventListener(
+  "scroll",
+  () => {
+    if (scrollTicking) return;
+    scrollTicking = true;
+    requestAnimationFrame(onScrollEffects);
+  },
+  { passive: true },
+);
+onScrollEffects();
+toTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" }));
+
+// Custom cursor: a dot plus a trailing ring that grows over interactive elements.
+if (finePointer && !reducedMotion) {
+  const dot = document.querySelector(".cursor-dot");
+  const ring = document.querySelector(".cursor-ring");
+  if (dot && ring) {
+    root.classList.add("has-cursor");
+    let mouseX = -100;
+    let mouseY = -100;
+    let ringX = -100;
+    let ringY = -100;
+    window.addEventListener("pointermove", (event) => {
+      mouseX = event.clientX;
+      mouseY = event.clientY;
+      dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+    });
+    const followRing = () => {
+      ringX += (mouseX - ringX) * 0.18;
+      ringY += (mouseY - ringY) * 0.18;
+      ring.style.transform = `translate(${ringX}px, ${ringY}px)`;
+      requestAnimationFrame(followRing);
+    };
+    followRing();
+    document.addEventListener("pointerover", (event) => {
+      ring.classList.toggle("is-hover", Boolean(event.target.closest("a, button, [data-tilt]")));
+    });
+    document.addEventListener("pointerdown", () => ring.classList.add("is-down"));
+    document.addEventListener("pointerup", () => ring.classList.remove("is-down"));
+    document.addEventListener("pointerleave", () => {
+      dot.style.transform = ring.style.transform = "translate(-100px, -100px)";
+    });
+  }
+}
+
+// Easter egg: tap the TS logo 5 times quickly, or type the Konami code, for burger rain.
+const rainBurgers = () => {
+  if (reducedMotion) return;
+  const foods = ["🍔", "🍔", "🍔", "🍟", "🥤"];
+  for (let i = 0; i < 42; i += 1) {
+    const drop = document.createElement("span");
+    drop.className = "burger-drop";
+    drop.textContent = foods[Math.floor(Math.random() * foods.length)];
+    drop.style.left = `${Math.random() * 100}vw`;
+    drop.style.setProperty("--size", `${22 + Math.random() * 30}px`);
+    drop.style.setProperty("--dur", `${2 + Math.random() * 1.8}s`);
+    drop.style.setProperty("--drift", `${(Math.random() - 0.5) * 160}px`);
+    drop.style.setProperty("--rot", `${(Math.random() - 0.5) * 720}deg`);
+    drop.style.animationDelay = `${Math.random() * 0.9}s`;
+    drop.addEventListener("animationend", () => drop.remove());
+    document.body.append(drop);
+  }
+};
+
+const brandMark = document.querySelector(".brand-mark");
+let brandTaps = [];
+brandMark?.addEventListener("click", (event) => {
+  const now = Date.now();
+  brandTaps = [...brandTaps.filter((t) => now - t < 1500), now];
+  if (brandTaps.length >= 5) {
+    event.preventDefault();
+    brandTaps = [];
+    rainBurgers();
+  }
+});
+
+const konami = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
+let konamiIndex = 0;
+document.addEventListener("keydown", (event) => {
+  konamiIndex = event.key === konami[konamiIndex] ? konamiIndex + 1 : event.key === konami[0] ? 1 : 0;
+  if (konamiIndex === konami.length) {
+    konamiIndex = 0;
+    rainBurgers();
+  }
+});
+
+console.log(
+  "%c🍔 MR.Burger %c Hi there, fellow developer! Tap the TS logo 5 times. → github.com/tiansawang1818-pixel",
+  "background:#ff6439;color:#fff;padding:4px 8px;border-radius:6px 0 0 6px;font-weight:bold",
+  "background:#252724;color:#ffc66a;padding:4px 8px;border-radius:0 6px 6px 0",
+);

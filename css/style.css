@@ -455,7 +455,7 @@ p {
   line-height: 0.9;
 }
 
-.hero h1 span {
+.hero h1 > .shimmer-text {
   display: block;
   color: var(--blue);
 }
@@ -2016,6 +2016,321 @@ p {
   }
 }
 
+/* ============ Effects v2 ============ */
+/* Browser-window frame around project screenshots */
+.project-screenshot {
+  display: flex;
+  aspect-ratio: auto;
+  flex-direction: column;
+}
+
+.browser-bar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  height: 38px;
+  padding: 0 14px;
+  align-items: center;
+  gap: 14px;
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--surface) 92%, var(--blue) 8%);
+}
+
+.browser-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.browser-dots i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ff5f57;
+}
+
+.browser-dots i:nth-child(2) { background: #febc2e; }
+.browser-dots i:nth-child(3) { background: #28c840; }
+
+.browser-url {
+  display: inline-flex;
+  min-width: 0;
+  flex: 1;
+  max-width: 340px;
+  height: 24px;
+  margin-inline: auto;
+  padding: 0 12px;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: var(--bg);
+  color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
+.browser-url b {
+  font-size: 0.62rem;
+  font-weight: 400;
+}
+
+.shot {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.shot img {
+  transform: translateY(var(--parallax, 0px)) scale(1.06);
+  transition: transform 120ms linear;
+  will-change: transform;
+}
+
+.project-card:hover .shot img {
+  transform: translateY(var(--parallax, 0px)) scale(1.1);
+  transition: transform 500ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.project-status {
+  top: 52px;
+}
+
+/* Hero name: letters rise in one by one */
+.split-letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.6em) rotate(6deg);
+  animation: letter-in 700ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation-delay: calc(var(--i) * 45ms + 150ms);
+}
+
+.hero h1 .shimmer-text.split-whole {
+  opacity: 0;
+  transform: translateY(0.4em);
+  animation: letter-in 800ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards, shimmer 6s ease-in-out 1s infinite;
+  animation-delay: 650ms, 1.5s;
+}
+
+@keyframes letter-in {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Section headings: words slide up when they scroll in */
+.split-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: 0.08em;
+}
+
+.split-word > span {
+  display: inline-block;
+  transform: translateY(105%);
+  transition: transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition-delay: calc(var(--w) * 55ms);
+}
+
+.words-in .split-word > span {
+  transform: none;
+}
+
+/* Contact card: rotating gradient border */
+@property --spin {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.contact-card {
+  position: relative;
+  isolation: isolate;
+}
+
+.contact-card::before {
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  padding: 2px;
+  border-radius: inherit;
+  content: "";
+  background: conic-gradient(
+    from var(--spin),
+    transparent 0deg,
+    var(--blue) 60deg,
+    #8b5cf6 120deg,
+    #22d3ee 170deg,
+    transparent 230deg
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: spin-border 6s linear infinite;
+}
+
+@keyframes spin-border {
+  to { --spin: 360deg; }
+}
+
+/* Back-to-top with scroll progress ring */
+.to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 60;
+  display: grid;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  color: var(--text);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(16px) scale(0.9);
+  pointer-events: none;
+  transition: opacity 250ms ease, transform 250ms ease;
+}
+
+.to-top.is-shown {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.to-top:hover {
+  transform: translateY(-3px);
+}
+
+.to-top svg {
+  position: absolute;
+  inset: 0;
+  transform: rotate(-90deg);
+}
+
+.to-top circle {
+  fill: none;
+  stroke-width: 3;
+}
+
+.to-top-track {
+  stroke: var(--line);
+}
+
+.to-top-ring {
+  stroke: var(--blue);
+  stroke-linecap: round;
+  stroke-dasharray: 132;
+  stroke-dashoffset: 132;
+}
+
+.to-top span {
+  font-weight: 800;
+}
+
+/* Custom cursor (fine pointers only, enabled from JS) */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  display: none;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.has-cursor .cursor-dot,
+.has-cursor .cursor-ring {
+  display: block;
+}
+
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  background: var(--blue);
+}
+
+.cursor-ring {
+  width: 34px;
+  height: 34px;
+  margin: -17px 0 0 -17px;
+  border: 1.5px solid color-mix(in srgb, var(--blue) 70%, transparent);
+  transition: width 200ms ease, height 200ms ease, margin 200ms ease, background-color 200ms ease,
+    border-color 200ms ease;
+}
+
+.cursor-ring.is-hover {
+  width: 58px;
+  height: 58px;
+  margin: -29px 0 0 -29px;
+  border-color: transparent;
+  background: color-mix(in srgb, var(--blue) 14%, transparent);
+}
+
+.cursor-ring.is-down {
+  width: 24px;
+  height: 24px;
+  margin: -12px 0 0 -12px;
+}
+
+/* Theme switch: circular wipe via View Transitions */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Easter egg: burger rain */
+.burger-drop {
+  position: fixed;
+  top: -60px;
+  z-index: 300;
+  font-size: var(--size, 32px);
+  pointer-events: none;
+  animation: burger-fall var(--dur, 2.6s) cubic-bezier(0.4, 0, 0.8, 0.6) forwards;
+}
+
+@keyframes burger-fall {
+  to {
+    transform: translate(var(--drift, 0px), 110vh) rotate(var(--rot, 360deg));
+  }
+}
+
+.brand-mark {
+  transition: transform 300ms cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+
+.brand:active .brand-mark {
+  transform: scale(0.85) rotate(-12deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .split-letter,
+  .hero h1 .shimmer-text.split-whole,
+  .split-word > span {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .contact-card::before {
+    animation: none;
+  }
+
+  .shot img {
+    transform: none !important;
+  }
+}
+
 /* Print: a clean, ink-friendly résumé when saved as PDF or printed */
 @media print {
   @page {
@@ -2064,6 +2379,11 @@ p {
   .hero-aurora,
   .tech-marquee,
   .tilt-glare,
+  .to-top,
+  .cursor-dot,
+  .cursor-ring,
+  .browser-bar,
+  .contact-card::before,
   .glow::before,
   .glow::after,
   .activity-card::after {
