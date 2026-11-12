@@ -12,7 +12,7 @@ A buildless, responsive portfolio for software engineering internship applicatio
 |---|---|
 | Projects | [WasmBot Studio](https://github.com/tiansawang1818-pixel/wasmbot-studio) ([live](https://wasmbot-studio.vercel.app/)) and [HEAT//SHIFT](https://github.com/tiansawang1818-pixel/HEAT) ([live](https://heatshift.hostless.app/)), each with live screenshots, my role, and stack |
 | Skills | Programming, frontend, backend and databases, data and geospatial, tools |
-| More work | This site, [python-calculator](https://github.com/tiansawang1818-pixel/python-calculator), [HTML101](https://github.com/tiansawang1818-pixel/HTML101) |
+| More work | This site, [HTML101](https://github.com/tiansawang1818-pixel/HTML101) |
 | About, activities, contact | Education, university activities, email, GitHub, phone |
 
 ## Front-end details

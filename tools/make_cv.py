@@ -137,8 +137,6 @@ s += wb
 s.append(Paragraph("Other work", sublabel))
 s += [b("<b>Personal portfolio</b> (" + L("https://tiansawang1818-pixel.github.io/", "website") + "): buildless, responsive "
         "site in HTML, CSS, and JavaScript with dark mode, keyboard navigation, reduced-motion support, and a print layout."),
-      b("<b>python-calculator</b> (" + L("https://github.com/tiansawang1818-pixel/python-calculator", "GitHub") + "): "
-        "unit-testing practice for a calculator class."),
       b("<b>HTML101</b> (" + L("https://github.com/tiansawang1818-pixel/HTML101", "GitHub") + "): web fundamentals labs "
         "covering semantic HTML, layout, styling, and multi-page sites.")]
 

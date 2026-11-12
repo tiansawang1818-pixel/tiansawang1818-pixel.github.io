@@ -257,29 +257,27 @@ project_page(
 
 # ---------- Page 4: more work, skills, contact ----------
 top = header(c, 3, "More work", "Smaller builds and practice")
-cw = (W - 2 * M - 2 * 10 * mm) / 3
+cw = (W - 2 * M - 10 * mm) / 2
 items = [
     ("This portfolio", "HTML · CSS · JavaScript",
      "Buildless, responsive site with dark mode, keyboard navigation, reduced-motion support, and a print layout.",
      "https://github.com/tiansawang1818-pixel/tiansawang1818-pixel.github.io"),
-    ("python-calculator", "Python",
-     "Unit-testing practice: test cases for a calculator class that adds, subtracts, multiplies, and divides.",
-     "https://github.com/tiansawang1818-pixel/python-calculator"),
     ("HTML101", "HTML · CSS",
      "Web fundamentals labs covering semantic HTML, page layout, styling, and multi-page sites.",
      "https://github.com/tiansawang1818-pixel/HTML101"),
 ]
-y0 = shot(c, IMG + "portfolio-preview.jpg", M, top, cw, "tiansawang1818-pixel.github.io")
+iw_ = 100 * mm  # image width; text columns stay wider
+y0 = shot(c, IMG + "portfolio-preview.jpg", M, top, iw_, "tiansawang1818-pixel.github.io")
 for i, (t, tech, d, url) in enumerate(items):
     x = M + i * (cw + 10 * mm)
     yy = (y0 - 6 * mm) if i == 0 else top
     if i > 0:
         c.setFillColor(SOFT)
         c.setStrokeColor(LINE)
-        c.roundRect(x, y0, cw, top - y0, 5, stroke=1, fill=1)
+        c.roundRect(x, y0, iw_, top - y0, 5, stroke=1, fill=1)
         c.setFillColor(BLUE)
         c.setFont("Helvetica-Bold", 26)
-        c.drawCentredString(x + cw / 2, (top + y0) / 2 - 4 * mm, "</>" if i == 2 else "f(x)")
+        c.drawCentredString(x + iw_ / 2, (top + y0) / 2 - 4 * mm, "</>")
         yy = y0 - 6 * mm
     yy = para(c, f"<b>{t}</b>", "body", x, yy, cw)
     yy = para(c, tech, "small", x, yy - 1, cw)
