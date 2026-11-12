@@ -15,7 +15,7 @@ def L(url, text=None):
     return f'<a href="{url}" color="#1f5f99"><u>{text or url.split("//")[-1].rstrip("/")}</u></a>'
 
 name = ParagraphStyle("name", fontName="Helvetica-Bold", fontSize=27, leading=31, textColor=INK)
-role = ParagraphStyle("role", fontName="Helvetica-Bold", fontSize=11.5, leading=14, textColor=INK, spaceBefore=6)
+role = ParagraphStyle("role", fontName="Helvetica-Bold", fontSize=11.5, leading=14, textColor=INK, spaceBefore=6, spaceAfter=2)
 sub = ParagraphStyle("sub", fontName="Helvetica-Bold", fontSize=9, leading=12, textColor=MUTED)
 contact = ParagraphStyle("contact", fontName="Helvetica", fontSize=9, leading=12.5, textColor=MUTED)
 h = ParagraphStyle("h", fontName="Helvetica-Bold", fontSize=10.5, leading=13, textColor=INK, spaceBefore=9)
@@ -38,16 +38,15 @@ SEP = ' <font color="#5b6774">&nbsp;|&nbsp;</font> '
 
 s = []
 s += [Paragraph("TIANSAWANG SUETRONG", name),
-      Paragraph("ICT STUDENT", role),
-      Paragraph("SOFTWARE ENGINEERING&nbsp; | &nbsp;BACKEND &amp; DATA", sub),
+      Paragraph("SOFTWARE ENGINEERING&nbsp; | &nbsp;BACKEND &amp; DATA", role),
       Paragraph("Bangkok, Thailand" + SEP + "+66 84 228 6225" + SEP + L("mailto:tiansawang1818@gmail.com", "tiansawang1818@gmail.com"), contact),
       Paragraph("<b>Portfolio</b>&nbsp; " + L("https://tiansawang1818-pixel.github.io/") + "&nbsp;&nbsp;&nbsp;<b>GitHub</b>&nbsp; " + L("https://github.com/tiansawang1818-pixel"), contact),
       Paragraph("<b>LinkedIn</b>&nbsp; " + L("https://www.linkedin.com/in/tiansawang-suetrong-95715343b/", "linkedin.com/in/tiansawang-suetrong-95715343b"), contact)]
 
 s += section("Profile")
-s.append(Paragraph("Digital Science and Technology undergraduate at Mahidol University seeking a backend, data engineering, "
-                   "or software engineering internship. Built and deployed two full-stack systems that are live today: a no-code bot "
-                   "platform on Rust WebAssembly and a geospatial decision platform for Bangkok’s urban heat, running on real satellite data.", body))
+s.append(Paragraph("Digital Science and Technology student at Mahidol University seeking a software engineering, backend, or data "
+                   "internship. Built and deployed two live full-stack systems: a no-code bot platform on Rust WebAssembly and a "
+                   "geospatial platform for Bangkok’s urban heat.", body))
 
 s += section("Technical Skills")
 for k, v in [("Programming", "Python, TypeScript, JavaScript, Java, SQL"),
