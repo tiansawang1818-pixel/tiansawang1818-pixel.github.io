@@ -39,13 +39,13 @@ SEP = ' <font color="#5b6774">&nbsp;|&nbsp;</font> '
 s = []
 s += [Paragraph("TIANSAWANG SUETRONG", name),
       Paragraph("ICT STUDENT", role),
-      Paragraph("BACKEND&nbsp; | &nbsp;DATA ENGINEERING&nbsp; | &nbsp;FULL-STACK", sub),
+      Paragraph("BACKEND&nbsp; | &nbsp;DATA ENGINEERING&nbsp; | &nbsp;SOFTWARE ENGINEERING", sub),
       Paragraph("Bangkok, Thailand" + SEP + "+66 84 228 6225" + SEP + L("mailto:tiansawang1818@gmail.com", "tiansawang1818@gmail.com"), contact),
       Paragraph("<b>Portfolio</b>&nbsp; " + L("https://tiansawang1818-pixel.github.io/") + "&nbsp;&nbsp;&nbsp;<b>GitHub</b>&nbsp; " + L("https://github.com/tiansawang1818-pixel"), contact)]
 
 s += section("Profile")
 s.append(Paragraph("Digital Science and Technology undergraduate at Mahidol University seeking a backend, data engineering, "
-                   "or full-stack internship. Built and deployed two full-stack systems that are live today: a no-code bot "
+                   "or software engineering internship. Built and deployed two full-stack systems that are live today: a no-code bot "
                    "platform on Rust WebAssembly and a geospatial decision platform for Bangkok’s urban heat, running on real satellite data.", body))
 
 s += section("Technical Skills")
