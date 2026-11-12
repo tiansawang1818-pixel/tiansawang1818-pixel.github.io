@@ -50,10 +50,10 @@ s.append(Paragraph("Digital Science and Technology undergraduate at Mahidol Univ
 
 s += section("Technical Skills")
 for k, v in [("Programming", "Python, TypeScript, JavaScript, Java, SQL"),
-             ("Web and APIs", "React, Next.js, FastAPI, Node.js, HTML, CSS, Tailwind CSS, REST APIs"),
-             ("Databases", "PostgreSQL, PostGIS, MySQL, Redis, Supabase"),
-             ("Data and Modeling", "ER modeling, relational database design, data validation, geospatial data, Google Earth Engine, OR-Tools"),
-             ("Tools", "Git, GitHub, GitHub Actions, Docker, VS Code")]:
+             ("Web Development", "HTML, CSS, Node.js"),
+             ("Databases", "PostgreSQL, MySQL, Supabase"),
+             ("Data and Modeling", "ER modeling, relational database design, data validation"),
+             ("Tools", "Git, GitHub, VS Code")]:
     s.append(Paragraph(f"<b>{k}:</b> {v}", body))
 
 s += section("Projects")
