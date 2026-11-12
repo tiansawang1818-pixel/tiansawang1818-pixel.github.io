@@ -59,7 +59,7 @@ Then open `http://localhost:4173`.
 ## Project evidence and image sources
 
 - **WasmBot Studio:** `wasmbot-live-dashboard.jpg` and `wasmbot-live-rules.jpg` were captured from the live app at https://wasmbot-studio.vercel.app/ on 11 November 2026 while signed in. The app requires sign-in, so the portfolio also links to the source code and the rule-editor screenshot. The 12 operators, 7 Edge Functions, and contributions are documented in the supplied resume and project source.
-- **HEAT//SHIFT:** live public pilot at https://heatshift.hostless.app/. The screenshot `heat-shift-live.jpg` was captured from the live City Explorer on 11 November 2026. The source repository remains private; admin tools require authorised sign-in.
+- **HEAT//SHIFT:** live public pilot at https://heatshift.hostless.app/. The screenshot `heat-shift-live.jpg` was captured from the live City Explorer on 11 November 2026. Source code is public at https://github.com/tiansawang1818-pixel/HEAT; admin tools require authorised sign-in.
 - **Sharing image:** `portfolio-preview.jpg` is a screenshot of this portfolio.
 
 The static website has no analytics, backend, API keys, or contact form. Contact buttons open the visitor's email application.
