@@ -41,7 +41,8 @@ s += [Paragraph("TIANSAWANG SUETRONG", name),
       Paragraph("ICT STUDENT", role),
       Paragraph("SOFTWARE ENGINEERING&nbsp; | &nbsp;BACKEND &amp; DATA", sub),
       Paragraph("Bangkok, Thailand" + SEP + "+66 84 228 6225" + SEP + L("mailto:tiansawang1818@gmail.com", "tiansawang1818@gmail.com"), contact),
-      Paragraph("<b>Portfolio</b>&nbsp; " + L("https://tiansawang1818-pixel.github.io/") + "&nbsp;&nbsp;&nbsp;<b>GitHub</b>&nbsp; " + L("https://github.com/tiansawang1818-pixel"), contact)]
+      Paragraph("<b>Portfolio</b>&nbsp; " + L("https://tiansawang1818-pixel.github.io/") + "&nbsp;&nbsp;&nbsp;<b>GitHub</b>&nbsp; " + L("https://github.com/tiansawang1818-pixel"), contact),
+      Paragraph("<b>LinkedIn</b>&nbsp; " + L("https://www.linkedin.com/in/tiansawang-suetrong-95715343b/", "linkedin.com/in/tiansawang-suetrong-95715343b"), contact)]
 
 s += section("Profile")
 s.append(Paragraph("Digital Science and Technology undergraduate at Mahidol University seeking a backend, data engineering, "
