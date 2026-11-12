@@ -54,7 +54,7 @@ Then open `http://localhost:4173`.
 - Search for `EDIT:` in `index.html` and `css/style.css` to find the main replacement points.
 - Change the internship role in the hero for each application.
 - Add a confirmed LinkedIn URL in the Contact section when available.
-- Keep `resume.pdf` current whenever the resume changes.
+- Keep `resume.pdf` current whenever the resume changes. Regenerate it with `python3 tools/make_resume.py resume.pdf` (needs `reportlab`; the PDF must stay one A4 page).
 
 ## Project evidence and image sources
 
