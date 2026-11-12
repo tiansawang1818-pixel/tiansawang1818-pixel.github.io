@@ -1,6 +1,6 @@
 # Tiansawang Suetrong · Internship Portfolio
 
-**Live site → https://tiansawang1818-pixel.github.io/** &nbsp;·&nbsp; **Résumé (PDF) → [resume.pdf](https://tiansawang1818-pixel.github.io/resume.pdf)**
+**Live site → https://tiansawang1818-pixel.github.io/** &nbsp;·&nbsp; **Résumé → [resume.pdf](https://tiansawang1818-pixel.github.io/resume.pdf)** &nbsp;·&nbsp; **CV → [cv.pdf](https://tiansawang1818-pixel.github.io/cv.pdf)** &nbsp;·&nbsp; **Portfolio → [portfolio.pdf](https://tiansawang1818-pixel.github.io/portfolio.pdf)**
 
 ![Portfolio hero](assets/images/portfolio-preview.jpg)
 
@@ -34,7 +34,9 @@ A buildless, responsive portfolio for software engineering internship applicatio
 ├── js/main.js            theme, animations, and interactions (vanilla JS)
 ├── assets/images/        favicon, profile photo, live project screenshots, share image
 ├── resume.pdf            one-page A4 résumé
-├── tools/make_resume.py  regenerates resume.pdf
+├── cv.pdf                two-page CV
+├── portfolio.pdf         four-page landscape portfolio
+├── tools/                make_resume.py, make_cv.py, make_portfolio.py
 ├── robots.txt, sitemap.xml, .nojekyll
 ```
 
