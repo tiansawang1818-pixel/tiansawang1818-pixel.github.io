@@ -1,65 +1,59 @@
-# Tiansawang Suetrong Internship Portfolio
+# Tiansawang Suetrong · Internship Portfolio
 
-A buildless, responsive portfolio for software engineering internship applications. Public claims come from the supplied resume and verified project documentation.
+**Live site → https://tiansawang1818-pixel.github.io/** &nbsp;·&nbsp; **Résumé (PDF) → [resume.pdf](https://tiansawang1818-pixel.github.io/resume.pdf)**
 
-**Website:** https://tiansawang1818-pixel.github.io/
+![Portfolio hero](assets/images/portfolio-preview.jpg)
 
-**Repository:** https://github.com/tiansawang1818-pixel/tiansawang1818-pixel.github.io
+A buildless, responsive portfolio for software engineering internship applications: plain HTML, CSS, and JavaScript served by GitHub Pages, with no framework, build step, backend, or analytics.
+
+## What's inside
+
+| Section | Content |
+|---|---|
+| Projects | [WasmBot Studio](https://github.com/tiansawang1818-pixel/wasmbot-studio) ([live](https://wasmbot-studio.vercel.app/)) and [HEAT//SHIFT](https://github.com/tiansawang1818-pixel/HEAT) ([live](https://heatshift.hostless.app/)), each with live screenshots, my role, and stack |
+| Skills | Programming, frontend, backend and databases, data and geospatial, tools |
+| More work | This site, [python-calculator](https://github.com/tiansawang1818-pixel/python-calculator), [HTML101](https://github.com/tiansawang1818-pixel/HTML101) |
+| About, activities, contact | Education, university activities, email, GitHub, phone |
+
+## Front-end details
+
+- Light and dark themes with a circular View Transitions wipe; the choice is remembered
+- Canvas particle network, aurora background, typing headline, and letter-by-letter name reveal
+- Tilt and spotlight cards, magnetic buttons, count-up numbers, scroll progress ring, and a live Bangkok clock
+- Custom cursor on fine pointers only
+- Every effect is switched off under `prefers-reduced-motion`, and the canvas pauses when it is off screen
+- Keyboard-friendly navigation, skip link, semantic landmarks, JSON-LD `Person` data, and a print stylesheet
+- A small easter egg for anyone who clicks the logo enough times 🍔
 
 ## Project structure
 
 ```text
 .
-├── index.html
-├── css/
-│   └── style.css
-├── js/
-│   └── main.js
-├── assets/
-│   └── images/
-│       ├── favicon.svg
-│       ├── heat-shift-live.jpg
-│       ├── portfolio-preview.jpg
-│       ├── tiansawang-profile.jpg
-│       ├── wasmbot-live-dashboard.jpg
-│       └── wasmbot-live-rules.jpg
-├── resume.pdf
-├── robots.txt
-├── sitemap.xml
-└── .nojekyll
+├── index.html            all page content
+├── css/style.css         theme tokens, layout, effects, print styles
+├── js/main.js            theme, animations, and interactions (vanilla JS)
+├── assets/images/        favicon, profile photo, live project screenshots, share image
+├── resume.pdf            one-page A4 résumé
+├── tools/make_resume.py  regenerates resume.pdf
+├── robots.txt, sitemap.xml, .nojekyll
 ```
 
-## Local preview
-
-From this directory, run:
+## Run locally
 
 ```sh
 python3 -m http.server 4173
 ```
 
-Then open `http://localhost:4173`.
+Then open <http://localhost:4173>.
 
-## Deploy to GitHub Pages
+## Deploy
 
-1. Use the public repository `tiansawang1818-pixel/tiansawang1818-pixel.github.io`.
-2. Extract `tiansawang-portfolio-github-pages.zip` and upload its contents to the repository root. Keep `index.html` at the root. Do not upload the ZIP itself or the legacy `sites/` directory.
-3. Commit the files to the `main` branch.
-4. In the repository, open **Settings → Pages**.
-5. Under **Build and deployment**, select **Deploy from a branch**.
-6. Select the `main` branch and `/ (root)`, then save.
-7. After GitHub finishes publishing, open `https://tiansawang1818-pixel.github.io/`.
+GitHub Pages publishes the `main` branch root. Push to `main` and the site updates within a minute or two. Asset URLs carry a `?v=` version in `index.html`; bump it when `css/style.css` or `js/main.js` changes so browsers fetch the new files.
 
-## Easy edits
+## Updating
 
-- Search for `EDIT:` in `index.html` and `css/style.css` to find the main replacement points.
-- Change the internship role in the hero for each application.
-- Add a confirmed LinkedIn URL in the Contact section when available.
-- Keep `resume.pdf` current whenever the resume changes. Regenerate it with `python3 tools/make_resume.py resume.pdf` (needs `reportlab`; the PDF must stay one A4 page).
+- **Résumé:** edit the content in `tools/make_resume.py`, then run `python3 tools/make_resume.py resume.pdf` (needs `reportlab`). Keep it to one A4 page and keep the web page in sync.
+- **Target role:** search for `EDIT:` in `index.html`.
+- **Screenshots:** the WasmBot images were captured from the live app on 11 November 2026 while signed in (the app requires sign-in). The HEAT//SHIFT image was captured from the live City Explorer on 11 November 2026. The share image was captured from this site on 12 November 2026.
 
-## Project evidence and image sources
-
-- **WasmBot Studio:** `wasmbot-live-dashboard.jpg` and `wasmbot-live-rules.jpg` were captured from the live app at https://wasmbot-studio.vercel.app/ on 11 November 2026 while signed in. The app requires sign-in, so the portfolio also links to the source code and the rule-editor screenshot. The 12 operators, 7 Edge Functions, and contributions are documented in the supplied resume and project source.
-- **HEAT//SHIFT:** live public pilot at https://heatshift.hostless.app/. The screenshot `heat-shift-live.jpg` was captured from the live City Explorer on 11 November 2026. Source code is public at https://github.com/tiansawang1818-pixel/HEAT; admin tools require authorised sign-in.
-- **Sharing image:** `portfolio-preview.jpg` is a screenshot of this portfolio.
-
-The static website has no analytics, backend, API keys, or contact form. Contact buttons open the visitor's email application.
+Project claims come from the résumé and each project's own source and documentation.
