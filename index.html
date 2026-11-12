@@ -52,7 +52,7 @@
           "@type": "CollegeOrUniversity",
           "name": "Mahidol University, Faculty of Information and Communication Technology"
         },
-        "knowsAbout": ["TypeScript", "React", "Python", "Java", "SQL", "PostgreSQL", "PostGIS", "Supabase", "Node.js", "WebAssembly"],
+        "knowsAbout": ["TypeScript", "React", "Python", "Java", "SQL", "PostgreSQL", "PostGIS", "Supabase", "Node.js", "WebAssembly", "Next.js", "FastAPI", "Redis", "Docker", "Geospatial data"],
         "sameAs": ["https://github.com/tiansawang1818-pixel"]
       }
     </script>
@@ -183,8 +183,8 @@
       </section>
 
       <div class="tech-marquee" aria-label="Technologies I work with">
-        <ul class="marquee-track"><li>TypeScript</li><li>React</li><li>Rust WebAssembly</li><li>Supabase</li><li>PostgreSQL</li><li>PostGIS</li><li>Python</li><li>Java</li><li>Node.js</li><li>Express.js</li><li>SQL</li><li>Tailwind CSS</li><li>Vite</li><li>Git</li></ul>
-        <ul class="marquee-track" aria-hidden="true"><li>TypeScript</li><li>React</li><li>Rust WebAssembly</li><li>Supabase</li><li>PostgreSQL</li><li>PostGIS</li><li>Python</li><li>Java</li><li>Node.js</li><li>Express.js</li><li>SQL</li><li>Tailwind CSS</li><li>Vite</li><li>Git</li></ul>
+        <ul class="marquee-track"><li>TypeScript</li><li>React</li><li>Rust WebAssembly</li><li>Supabase</li><li>PostgreSQL</li><li>PostGIS</li><li>Python</li><li>Java</li><li>Node.js</li><li>Express.js</li><li>SQL</li><li>Tailwind CSS</li><li>Vite</li><li>Next.js</li><li>FastAPI</li><li>Redis</li><li>Docker</li><li>Git</li></ul>
+        <ul class="marquee-track" aria-hidden="true"><li>TypeScript</li><li>React</li><li>Rust WebAssembly</li><li>Supabase</li><li>PostgreSQL</li><li>PostGIS</li><li>Python</li><li>Java</li><li>Node.js</li><li>Express.js</li><li>SQL</li><li>Tailwind CSS</li><li>Vite</li><li>Next.js</li><li>FastAPI</li><li>Redis</li><li>Docker</li><li>Git</li></ul>
       </div>
 
       <section class="section projects-section" id="projects" aria-labelledby="projects-title">
@@ -297,8 +297,9 @@
                 <ul class="project-highlights" aria-label="HEAT SHIFT contributions">
                   <li>Designed a <strong><span class="count" data-count="6">6</span>-stage data workflow</strong>, from staging and validation to publishing and client updates.</li>
                   <li>Built versioned PostgreSQL/PostGIS datasets for all <strong><span class="count" data-count="50">50</span> Bangkok districts</strong> and a City Optimizer using OR-Tools.</li>
-                  <li>Deployed a FastAPI, Next.js, Celery, and Redis stack on free-tier hosting with live updates over SSE.</li>
-                  <li>Added evidence reports with data versions, uncertainty, and stale-result warnings.</li>
+                  <li>Connected seven real data sources, including Landsat 8/9, Sentinel-2, Dynamic World, WorldPop, and OpenStreetMap, publishing only validated versions.</li>
+                  <li>Deployed a FastAPI, Next.js, Celery, and Redis stack on a $0 cloud budget (768 MiB RAM) with live map updates over SSE.</li>
+                  <li>Added evidence reports with data versions, uncertainty, and stale-result warnings; admin tools sit behind OIDC single sign-on.</li>
                 </ul>
                 <ul class="tags" aria-label="HEAT SHIFT technologies">
                   <li>Python</li>
@@ -321,7 +322,7 @@
                     Source code <span aria-hidden="true">↗</span>
                   </a>
                 </div>
-                <p class="project-note">Public pilot: the map, risk analysis, and budget planning are open without sign-in; admin tools require authorised login. Some district layers may still be processing.</p>
+                <p class="project-note">Public pilot: the map, risk analysis, and budget planning are open without sign-in; admin tools require authorised login. Satellite layers refresh automatically when a new clear scene arrives.</p>
               </div>
             </article>
           </div>
