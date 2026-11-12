@@ -39,7 +39,7 @@ SEP = ' <font color="#5b6774">&nbsp;|&nbsp;</font> '
 s = []
 s += [Paragraph("TIANSAWANG SUETRONG", name),
       Paragraph("ICT STUDENT", role),
-      Paragraph("BACKEND&nbsp; | &nbsp;DATA ENGINEERING&nbsp; | &nbsp;SOFTWARE ENGINEERING", sub),
+      Paragraph("SOFTWARE ENGINEERING&nbsp; | &nbsp;BACKEND &amp; DATA", sub),
       Paragraph("Bangkok, Thailand" + SEP + "+66 84 228 6225" + SEP + L("mailto:tiansawang1818@gmail.com", "tiansawang1818@gmail.com"), contact),
       Paragraph("<b>Portfolio</b>&nbsp; " + L("https://tiansawang1818-pixel.github.io/") + "&nbsp;&nbsp;&nbsp;<b>GitHub</b>&nbsp; " + L("https://github.com/tiansawang1818-pixel"), contact)]
 
@@ -50,7 +50,7 @@ s.append(Paragraph("Digital Science and Technology undergraduate at Mahidol Univ
 
 s += section("Technical Skills")
 for k, v in [("Programming", "Python, TypeScript, JavaScript, Java, SQL"),
-             ("Web Development", "HTML, CSS, Node.js"),
+             ("Web Development", "HTML, CSS, Node.js, Web Services"),
              ("Databases", "PostgreSQL, MySQL, Supabase"),
              ("Data and Modeling", "ER modeling, relational database design, data validation"),
              ("Tools", "Git, GitHub, VS Code")]:
@@ -66,7 +66,7 @@ s += [b("Built and deployed a map-first platform for planning heat mitigation in
         "that monitors seven real sources, including Landsat 8/9, Sentinel-2, Dynamic World, WorldPop, and OpenStreetMap."),
       b("Built versioned PostGIS datasets, a budget optimizer with Google OR-Tools, and evidence reports showing data versions, "
         "uncertainty, and stale-result warnings; admin tools are protected by OIDC single sign-on."),
-      b("Runs on a $0 cloud budget: four supervised processes in 768 MiB of RAM, with CI checks enforcing the same limits.")]
+      b("Runs 24/7 on free-tier cloud hosting at $0 cost.")]
 
 s.append(Paragraph("WasmBot Studio", ptitle))
 s.append(Paragraph("<i>TypeScript | React | Supabase | PostgreSQL | Rust WebAssembly</i>" + SEP +
@@ -82,6 +82,7 @@ s += section("Education")
 s.append(Paragraph('Mahidol University <font color="#5b6774" size="9">&nbsp;|&nbsp; 2025 - Present</font>', ptitle))
 s.append(Paragraph("Faculty of Information and Communication Technology", gray))
 s.append(Paragraph("Bachelor of Science in Digital Science and Technology&nbsp; | &nbsp;GPA 3.08", gray))
+s.append(Paragraph("<b>Relevant Coursework:</b> Database Systems, Data Structures, Web Programming, Object-Oriented Programming", body))
 s.append(Paragraph('Klaeng Wittayasathaworn School <font color="#5b6774" size="9">&nbsp;|&nbsp; 2022 - 2025</font>', ptitle))
 s.append(Paragraph("Secondary Education", gray))
 
