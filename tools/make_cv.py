@@ -86,7 +86,7 @@ s.append(Paragraph("Secondary Education", gray))
 s += section("Technical Skills")
 for k, v in [("Programming", "Python, TypeScript, JavaScript, Java, SQL"),
              ("Web Development", "HTML, CSS, Node.js, Express.js, Web Services"),
-             ("Databases", "PostgreSQL, MySQL, Supabase"),
+             ("Databases", "MySQL, Supabase"),
              ("Data and Modeling", "ER modeling, relational database design, data validation"),
              ("Tools", "Git, GitHub, VS Code, Linux, Postman, npm")]:
     s.append(Paragraph(f"<b>{k}:</b> {v}", body))

@@ -291,7 +291,7 @@ half = (W - 2 * M - 12 * mm) / 2
 yy = label(c, "Skills", M, by + 6 * mm, half, gap=2)
 for k, v in [("Programming", "Python, TypeScript, JavaScript, Java, SQL"),
              ("Web Development", "HTML, CSS, Node.js, Express.js, Web Services"),
-             ("Databases", "PostgreSQL, MySQL, Supabase"),
+             ("Databases", "MySQL, Supabase"),
              ("Data and Modeling", "ER modeling, relational database design, data validation"),
              ("Tools", "Git, GitHub, VS Code, Linux, Postman, npm")]:
     yy = para(c, f"<b>{k}:</b> {v}", "body", M, yy - 1, half)
