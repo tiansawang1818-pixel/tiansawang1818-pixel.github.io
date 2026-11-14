@@ -82,7 +82,7 @@ s += section("Education")
 s.append(Paragraph('Mahidol University <font color="#5b6774" size="9">&nbsp;|&nbsp; 2025 - Present</font>', ptitle))
 s.append(Paragraph("Faculty of Information and Communication Technology", gray))
 s.append(Paragraph("Bachelor of Science in Digital Science and Technology&nbsp; | &nbsp;GPA 3.10", gray))
-s.append(Paragraph("<b>Relevant Coursework:</b> Database Systems, Data Structures, Web Programming, Object-Oriented Programming", body))
+s.append(Paragraph("<b>Relevant Coursework:</b> Data Structures and Algorithms, Database Management Systems, Advanced Programming; in progress: Web Technologies, Software Engineering, Computer Networks", body))
 s.append(Paragraph('Klaeng Wittayasathaworn School <font color="#5b6774" size="9">&nbsp;|&nbsp; 2022 - 2025</font>', ptitle))
 s.append(Paragraph("Secondary Education", gray))
 
